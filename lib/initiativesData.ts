@@ -29,7 +29,8 @@ export const initiatives: Initiative[] = [
         description: 'Exponential growth strategies for businesses',
         detailDescription: '10xGrowth provides exponential growth strategies for businesses looking to scale rapidly. Our frameworks and mentorship programs are designed to help you achieve breakthrough results.',
         icon: '📈',
-        slug: '10x-growth'
+        slug: '10x-growth',
+        externalLink: 'https://www.10xgrowth.com/'
     },
     {
         id: 'collective-path',

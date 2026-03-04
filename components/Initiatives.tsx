@@ -40,12 +40,10 @@ const Initiatives = () => {
                                 key={item.id}
                                 className="group relative bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col h-full border border-gray-100/80"
                             >
-                                <Link href={href} className="absolute inset-0 z-0" aria-label={`View details for ${item.title}`} />
-
                                 {/* Consistent Brand Color Top Border */}
                                 <div className="h-1.5 w-full bg-[#1A4D6F]" />
 
-                                <div className="p-8 flex-1 flex flex-col relative z-10 pointer-events-none">
+                                <div className="p-8 flex-1 flex flex-col relative z-10">
                                     <div className="text-4xl mb-6">{item.icon}</div>
 
                                     <h3 className={`text-xl font-bold text-[#1A4D6F] mb-1 ${playfair.className}`}>
@@ -58,6 +56,17 @@ const Initiatives = () => {
                                         {item.description}
                                     </p>
 
+                                    <div className="mt-auto">
+                                        <Link
+                                            href={href}
+                                            className="inline-flex items-center text-[#1A4D6F] font-bold text-sm hover:text-[#0f2d42] transition-colors group/link"
+                                        >
+                                            Learn More
+                                            <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         )

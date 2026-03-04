@@ -9,21 +9,16 @@ const playfair = Playfair_Display({ subsets: ['latin'] });
 const inter = Inter({ subsets: ['latin'] });
 
 const footerLinks = {
-    philosophy: [
-        { name: 'Our Vision', href: '#' },
-        { name: 'Philosophy', href: '#' },
-        { name: 'Team', href: '#' },
+    main: [
+        { name: 'Home', href: '/' },
+        { name: 'About', href: '/#philosophy' },
+        { name: 'Initiatives', href: '/#initiatives' },
+        { name: 'Join', href: '/login' },
+        { name: 'Contact', href: '/contact' },
     ],
-    initiatives: [
-        { name: 'Programs', href: '#' },
-        { name: 'Events', href: '#' },
-        { name: 'Stories', href: '#' },
+    resources: [
         { name: 'The Collective Path of Humanity', href: '/initiatives/collective-path-of-humanity' },
-    ],
-    legal: [
-        { name: 'Privacy', href: '#' },
-        { name: 'Terms', href: '#' },
-        { name: 'Contact', href: '#' },
+        { name: 'Resources', href: '/initiatives/collective-path-of-humanity' },
     ]
 };
 
@@ -50,27 +45,15 @@ const Footer = () => {
                         <p className={`text-[#2D3748]/70 leading-relaxed max-w-sm ${playfair.className} italic`}>
                             Co-creating a world where knowledge, opportunity, and resources flow freely for collective prosperity.
                         </p>
-                        <div className="flex gap-4">
-                            {/* Social Placeholders with Hover Effect */}
-                            {['Twitter', 'LinkedIn', 'Instagram'].map((social) => (
-                                <a
-                                    key={social}
-                                    href="#"
-                                    className="w-10 h-10 rounded-full bg-[#1A4D6F]/5 flex items-center justify-center text-[#1A4D6F]/70 hover:bg-[#1A4D6F] hover:text-white transition-all duration-300 group"
-                                >
-                                    <span className="text-xs">{social[0]}</span>
-                                </a>
-                            ))}
-                        </div>
                     </div>
 
                     {/* Links Sections */}
-                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-4">
-                        {/* Column 1 */}
+                    <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-2 gap-8 md:gap-4">
+                        {/* Column 1 - Quick Links */}
                         <div className="space-y-4">
-                            <h4 className={`text-[#1A4D6F] font-semibold text-lg ${playfair.className}`}>Philosophy</h4>
+                            <h4 className={`text-[#1A4D6F] font-semibold text-lg ${playfair.className}`}>Explore</h4>
                             <ul className="space-y-3">
-                                {footerLinks.philosophy.map((link) => (
+                                {footerLinks.main.map((link) => (
                                     <li key={link.name}>
                                         <Link href={link.href} className="text-[#2D3748]/70 hover:text-[#1A4D6F] transition-colors duration-200 text-sm">
                                             {link.name}
@@ -80,25 +63,11 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        {/* Column 2 */}
+                        {/* Column 2 - Resources */}
                         <div className="space-y-4">
-                            <h4 className={`text-[#1A4D6F] font-semibold text-lg ${playfair.className}`}>Initiatives</h4>
+                            <h4 className={`text-[#1A4D6F] font-semibold text-lg ${playfair.className}`}>Resources</h4>
                             <ul className="space-y-3">
-                                {footerLinks.initiatives.map((link) => (
-                                    <li key={link.name}>
-                                        <Link href={link.href} className="text-[#2D3748]/70 hover:text-[#1A4D6F] transition-colors duration-200 text-sm">
-                                            {link.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Column 3 */}
-                        <div className="space-y-4">
-                            <h4 className={`text-[#1A4D6F] font-semibold text-lg ${playfair.className}`}>Connect</h4>
-                            <ul className="space-y-3">
-                                {footerLinks.legal.map((link) => (
+                                {footerLinks.resources.map((link) => (
                                     <li key={link.name}>
                                         <Link href={link.href} className="text-[#2D3748]/70 hover:text-[#1A4D6F] transition-colors duration-200 text-sm">
                                             {link.name}

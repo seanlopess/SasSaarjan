@@ -58,7 +58,7 @@ export default async function InitiativePage({
                             rel="noopener noreferrer"
                             className="inline-flex items-center px-8 py-4 bg-[#1A4D6F] text-white rounded-lg hover:bg-[#133a55] transition-colors duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                         >
-                            Visit Initiative
+                            Visit the Initiative
                             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>

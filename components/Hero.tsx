@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import Link from 'next/link';
 import { Playfair_Display, Inter } from 'next/font/google';
 
 const playfair = Playfair_Display({
@@ -56,14 +57,16 @@ const Hero = () => {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-6 items-center animate-[fadeIn_1s_ease-out_1.1s_forwards] opacity-0 translate-y-4">
-          <button className="px-8 py-4 bg-[#1A4D6F] text-white rounded-full font-semibold text-lg shadow-lg shadow-[#1A4D6F]/30 hover:shadow-[#1A4D6F]/50 hover:bg-[#153e5a] hover:-translate-y-1 transition-all duration-300">
-            Join the Ecosystem
-          </button>
+          <Link href="/contact">
+            <button className="px-8 py-4 bg-[#1A4D6F] text-white rounded-full font-semibold text-lg shadow-lg shadow-[#1A4D6F]/30 hover:shadow-[#1A4D6F]/50 hover:bg-[#153e5a] hover:-translate-y-1 transition-all duration-300">
+              Join the Ecosystem
+            </button>
+          </Link>
 
-          <a href="#" className="text-[#1A4D6F] font-bold text-lg hover:text-[#0f2d42] transition-colors relative group">
+          <Link href="/how-it-works" className="text-[#1A4D6F] font-bold text-lg hover:text-[#0f2d42] transition-colors relative group">
             Explore How It Works
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1A4D6F] transition-all group-hover:w-full"></span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

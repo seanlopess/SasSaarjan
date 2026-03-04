@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Merriweather, Inter } from 'next/font/google';
+import { supabase } from '@/lib/supabaseClient';
 
 const merriweather = Merriweather({
   subsets: ['latin'],
@@ -30,7 +31,7 @@ export default function ContactPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error on input
     if (errors[name]) {
       setErrors(prev => {
@@ -74,15 +75,32 @@ export default function ContactPage() {
 
     if (validateForm()) {
       setIsSubmitting(true);
-      
-      // Simulate submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setStatus({ type: 'success', message: 'Thank you for reaching out. We will get back to you shortly.' });
-      setFormData({ name: '', email: '', subject: '', message: '', honeypot: '' });
-      setIsSubmitting(false);
+      setStatus({ type: '', message: '' });
 
-      // Clear success message after 5 seconds
+      try {
+        const { error } = await supabase
+          .from('contact_messages')
+          .insert([
+            {
+              name: formData.name,
+              email: formData.email,
+              subject: formData.subject,
+              message: formData.message,
+            },
+          ]);
+
+        if (error) throw error;
+
+        setStatus({ type: 'success', message: 'Thank you for reaching out. We will get back to you shortly.' });
+        setFormData({ name: '', email: '', subject: '', message: '', honeypot: '' });
+      } catch (err: any) {
+        console.error('Error submitting form:', err);
+        setStatus({ type: 'error', message: 'Something went wrong. Please try again later.' });
+      } finally {
+        setIsSubmitting(false);
+      }
+
+      // Clear status message after 5 seconds
       setTimeout(() => {
         setStatus({ type: '', message: '' });
       }, 5000);
@@ -203,9 +221,7 @@ export default function ContactPage() {
                   </button>
                 </div>
 
-                <p className="disclaimer text-center text-xs text-muted mt-4">
-                  This form is for demonstration purposes only.
-                </p>
+
 
                 <div
                   className={`form-status w-full text-center mt-4 font-medium text-primary transition-opacity duration-1000 ${status.message ? 'opacity-100' : 'opacity-0'}`}
